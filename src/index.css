@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@theme {
+  --color-border: var(--border);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-card: var(--card);
+
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
+}
+
+@layer base {
+  :root {
+    --background: #fff;
+    --foreground: #0f172a;
+
+    --card: #ffffff;
+
+    /* --primary: #f05507; */
+    --primary: #8dc63f;
+    --primary-foreground: #f1f5f9;
+
+    --border: #e2e8f0;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer components {
+  .container {
+    @apply w-[80%] m-auto;
+  }
+}
+
+@layer utilities {
+  .card-hover {
+    @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+    text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+  }
+
+  .cosmic-button {
+    @apply px-6 py-2 rounded-full bg-primary text-center text-primary-foreground font-medium transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)] hover:scale-105 active:scale-95;
+  }
+
+  .shadow-top {
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .ruler {
+    width: 40px;
+    height: 3px;
+    @apply bg-primary mt-1;
+  }
+}
+
+.swiper-pagination-bullet {
+  @apply bg-slate-400 opacity-50 transition-all;
+}
+
+.swiper-pagination-bullet-active {
+  @apply bg-primary;
+  opacity: 1;
+  transform: scale(1.2);
+}

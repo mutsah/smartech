@@ -1,0 +1,46 @@
+{
+  "users": [
+    {
+      "username": "therealjsm",
+      "email": "es@gmail.com",
+      "phone": "+263785094296",
+      "password": "123456767",
+      "id": 1
+    },
+    {
+      "username": "therealjsm",
+      "email": "ese@gmail.com",
+      "phone": "0778269990",
+      "password": "123456789",
+      "id": 2
+    },
+    {
+      "username": "tariro",
+      "email": "mutsahfx@gmail.com",
+      "phone": "76543212",
+      "password": "Pass123#",
+      "id": 3
+    },
+    {
+      "username": "Tener",
+      "email": "tener@gmail",
+      "phone": "0778269990",
+      "password": "963214785",
+      "id": 4
+    },
+    {
+      "username": "thereal",
+      "email": "gh@gmail.com",
+      "phone": "112122",
+      "password": "123456789",
+      "id": 5
+    },
+    {
+      "username": "new",
+      "email": "newana@gmail.com",
+      "phone": "0778269990",
+      "password": "123456789",
+      "id": 6
+    }
+  ]
+}
