@@ -160,8 +160,6 @@ export const Cart = () => {
               <p className="font-semibold text-md py-1 text-end">${total.toFixed(2)}</p>
             </div>
 
-            <p className="text-center text-gray-500 my-2">OR</p>
-
             <button
               onClick={handlePlaceOrder}
               disabled={isLoading}
