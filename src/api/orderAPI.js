@@ -1,13 +1,13 @@
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
-const URL = "http://localhost:3000/order/";
+const URL = 'http://localhost:3000/order/';
 
 export async function saveOrder(orderItems, address, shippingFee, total, user) {
   try {
     const response = await fetch(`${URL}saveOrder`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         userId: user,
@@ -34,23 +34,23 @@ export async function saveOrder(orderItems, address, shippingFee, total, user) {
 export async function getAllOrders() {
   try {
     const response = await fetch(`${URL}getOrders`, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
     });
 
     const data = await response.json();
 
     if (!response.ok) {
-      console.error("API Error:", data);
+      console.error('API Error:', data);
       throw new Error(data.error || `HTTP error! status: ${response.status}`);
     }
 
     console.log(data.orders);
     return data.orders;
   } catch (error) {
-    console.error("API Fetch Error:", error);
-    throw new Error(error instanceof Error ? error.message : "Unknown error");
+    console.error('API Fetch Error:', error);
+    throw new Error(error instanceof Error ? error.message : 'Unknown error');
   }
 }
