@@ -1,17 +1,15 @@
-import { ShoppingCartIcon } from "lucide-react";
-import { List, X } from "phosphor-react";
-import { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { UserDropdown } from "./UserDropdown";
-import { getNavItems } from "../partials/navItems";
-import { useAuth } from "../context/AuthContext";
+import { ShoppingCartIcon } from 'lucide-react';
+import { List, X } from 'phosphor-react';
+import { useEffect, useRef, useState } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { UserDropdown } from './UserDropdown';
+import { getNavItems } from '../partials/navItems';
+import { useAuth } from '../context/AuthContext';
 
 const navItems = getNavItems;
 
 const AdminNavBar = () => {
-  const location = useLocation();
   const navigate = useNavigate();
-  const { pathname } = location;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -25,10 +23,10 @@ const AdminNavBar = () => {
       // Check if user exists
       if (!isLoggedIn) {
         logout();
-        navigate("/sign-in");
-      } else if (user.user_type !== "Admin") {
+        navigate('/sign-in');
+      } else if (user.user_type !== 'Admin') {
         logout();
-        navigate("/sign-in");
+        navigate('/sign-in');
       }
     } else if (!initialAuthChecked) {
       setInitialAuthChecked(true);
@@ -46,9 +44,9 @@ const AdminNavBar = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -75,10 +73,7 @@ const AdminNavBar = () => {
           </div>
         ) : (
           <>
-            <NavLink
-              to="/sign-in"
-              className="border border-primary rounded-full px-4 text-primary"
-            >
+            <NavLink to="/sign-in" className="border border-primary rounded-full px-4 text-primary">
               Login
             </NavLink>
           </>
