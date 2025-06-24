@@ -54,3 +54,26 @@ export async function getAllOrders() {
     throw new Error(error instanceof Error ? error.message : 'Unknown error');
   }
 }
+
+export async function updateOrder(id) {
+  try {
+    const response = await fetch(`${URL}update-order/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('API Error:', data);
+      throw new Error(data.error || `HTTP error! status: ${response.status}`);
+    }
+
+    return data;
+  } catch (error) {
+    console.error('API Fetch Error:', error);
+    throw new Error(error instanceof Error ? error.message : 'Unknown error');
+  }
+}
