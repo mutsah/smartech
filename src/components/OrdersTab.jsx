@@ -1,19 +1,17 @@
-import React from "react";
-import { formatDate } from "../utils/formatDate";
+import React from 'react';
+import { formatDate } from '../utils/formatDate';
 
 const OrdersTab = ({ orders, onOpenModal }) => {
   const getStatusColor = (status) => {
     switch (status) {
-      case "pending":
-        return "bg-yellow-100 text-yellow-800";
-      case "shipped":
-        return "bg-blue-100 text-blue-800";
-      case "delivered":
-        return "bg-green-100 text-green-800";
-      case "cancelled":
-        return "bg-red-100 text-red-800";
+      case 'pending':
+        return 'bg-yellow-300 text-yellow-800';
+      case 'paid':
+        return 'bg-green-300 text-green-800';
+      case 'cancelled':
+        return 'bg-red-300 text-red-800';
       default:
-        return "bg-gray-100 text-gray-800";
+        return 'bg-gray-300 text-gray-800';
     }
   };
 
@@ -65,7 +63,7 @@ const OrdersTab = ({ orders, onOpenModal }) => {
                 <td className="px-6 py-4 whitespace-nowrap">
                   <span
                     className={`px-2 py-1 rounded-full text-xs ${getStatusColor(
-                      order.status
+                      order.orderStatus,
                     )}`}
                   >
                     {order.status}
@@ -74,7 +72,7 @@ const OrdersTab = ({ orders, onOpenModal }) => {
 
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
                   <button
-                    onClick={() => onOpenModal("viewOrder", order)}
+                    onClick={() => onOpenModal('viewOrder', order)}
                     className="text-blue-600 hover:text-blue-800"
                   >
                     View Details
