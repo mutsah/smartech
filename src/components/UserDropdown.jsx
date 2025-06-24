@@ -1,7 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import { User, ShoppingCart, Package, LogOut } from "lucide-react";
-import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useRef, useEffect } from 'react';
+import { User, ShoppingCart, Package, LogOut } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export const UserDropdown = () => {
   const navigate = useNavigate();
@@ -13,8 +13,8 @@ export const UserDropdown = () => {
 
   const handleLogoutClick = () => {
     logout();
-    if (user.user_type == "Admin") {
-      navigate("/sign-in");
+    if (user.user_type == 'Admin') {
+      navigate('/sign-in');
     }
   };
 
@@ -26,9 +26,9 @@ export const UserDropdown = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -70,23 +70,29 @@ export const UserDropdown = () => {
 
           {/* Menu Items */}
           <div className="py-2">
-            <button
-              onClick={() => handleMenuClick("cart")}
-              className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors duration-150 flex items-center space-x-3"
-            >
-              <ShoppingCart className="w-5 h-5 text-gray-500" />
-              <span className="text-gray-700">Cart</span>
-            </button>
+            {user.user_type == 'Admin' ? (
+              <></>
+            ) : (
+              <>
+                <button
+                  onClick={() => handleMenuClick('cart')}
+                  className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors duration-150 flex items-center space-x-3"
+                >
+                  <ShoppingCart className="w-5 h-5 text-gray-500" />
+                  <span className="text-gray-700">Cart</span>
+                </button>
 
-            <button
-              onClick={() => handleMenuClick("my-orders")}
-              className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors duration-150 flex items-center space-x-3"
-            >
-              <Package className="w-5 h-5 text-gray-500" />
-              <span className="text-gray-700">My Orders</span>
-            </button>
+                <button
+                  onClick={() => handleMenuClick('my-orders')}
+                  className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors duration-150 flex items-center space-x-3"
+                >
+                  <Package className="w-5 h-5 text-gray-500" />
+                  <span className="text-gray-700">My Orders</span>
+                </button>
+              </>
+            )}
 
-            <div className="border-t border-gray-100 mt-2 pt-2">
+            <div className={user.user_type != 'Admin' && 'border-t border-gray-100 mt-2 pt-2'}>
               <button
                 onClick={() => handleLogoutClick()}
                 className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors duration-150 flex items-center space-x-3"
