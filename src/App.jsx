@@ -17,6 +17,7 @@ import ResetForm from './_auth/forms/ResetForm';
 import SellerDashboard from './_root/admin/pages/SellerDashboard';
 import OrderSuccess from './_root/user/pages/OrderSuccess';
 import PaynowCheckOut from './_root/user/pages/PaynowCheckOut';
+import OrderPaymentUpdate from './_root/user/pages/OrderPaymentUpdate';
 
 function App() {
   return (
@@ -43,8 +44,11 @@ function App() {
               <Route path="about" element={<AboutUs></AboutUs>}></Route>
               <Route path="product/:id" element={<ViewProduct></ViewProduct>}></Route>
               <Route path="cart" element={<Cart></Cart>}></Route>
-              <Route path="/order-success/:id" element={<OrderSuccess></OrderSuccess>}></Route>
-              <Route path="/checkout" element={<PaynowCheckOut></PaynowCheckOut>}></Route>
+              <Route path="/order-success" element={<OrderSuccess></OrderSuccess>}></Route>
+              <Route
+                path="/order-update/:id"
+                element={<OrderPaymentUpdate></OrderPaymentUpdate>}
+              ></Route>
             </Route>
           </Routes>
         </ShopContextProvider>
