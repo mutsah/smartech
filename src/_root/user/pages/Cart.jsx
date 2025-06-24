@@ -8,13 +8,11 @@ import { toast } from 'react-toastify';
 import LoadingSpinner from '../../../components/LoadingSpinner';
 import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import axios from 'axios';
+import { handlePaynow } from '../../../api/paymentAPI';
 
 export const Cart = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [orderID, setOrderID] = useState(null);
-  const [paid, setPaid] = useState(false);
-  const [paypalError, setPaypalError] = useState(null);
 
   const { cartItems, products, loading, error, getTotalCartAmount, getTotalCartItems, clearCart } =
     useContext(ShopContext);
@@ -28,68 +26,27 @@ export const Cart = () => {
   const taxAmount = (totalCartAmount * taxPercentage) / 100;
   const total = totalCartAmount + shippingFee + taxAmount;
 
-  // Prepare order items for both PayPal and database
   const prepareOrderItems = () => {
     const orderItems = [];
     Object.entries(cartItems).forEach(([productId, quantity]) => {
       if (quantity > 0) {
         const product = products.find((p) => p.id.toString() === productId);
-        orderItems.push({
-          productId: productId,
-          quantity: quantity,
-          productName: product?.title || product?.name || 'Unknown Product',
-          price: product?.price || 0,
-          subtotal: (product?.price || 0) * quantity,
-        });
+        if (product) {
+          const price = parseFloat(product?.price) || 0;
+          // Ensure price is valid
+          if (price > 0) {
+            orderItems.push({
+              productId: productId.toString(), // Ensure it's a string
+              quantity: parseInt(quantity), // Ensure it's a number
+              productName: product?.title || product?.name || 'Unknown Product',
+              price: parseFloat(price.toFixed(2)), // Ensure 2 decimal places
+              subtotal: parseFloat((price * quantity).toFixed(2)),
+            });
+          }
+        }
       }
     });
     return orderItems;
-  };
-
-  // Create PayPal order
-  const createPayPalOrder = async () => {
-    setIsLoading(true);
-    try {
-      const orderItems = prepareOrderItems();
-
-      const response = await axios.post('http://localhost:3000/payment/create-order', {
-        orderItems: orderItems,
-        subTotal: totalCartAmount.toFixed(2),
-        shippingFee: shippingFee.toFixed(2),
-        tax: taxAmount.toFixed(2),
-        totalAmount: total.toFixed(2),
-      });
-
-      setOrderID(response.data.orderID);
-      return response.data.orderID;
-    } catch (err) {
-      setPaypalError(err.message);
-      throw err;
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  // Handle PayPal approval
-  const onPayPalApprove = async (data, actions) => {
-    try {
-      // Capture the PayPal payment
-      await axios.post(`http://localhost:3000/payment/capture-order/${data.orderID}`);
-
-      // Save order to database
-      const orderItems = prepareOrderItems();
-      const response = await saveOrder(orderItems, user.address, shippingFee, total, user.id);
-
-      if (response.success) {
-        toast.success('Payment successful! Order processed.');
-        setPaid(true);
-        clearCart();
-        setTimeout(() => navigate('/order-success'), 2000);
-      }
-    } catch (err) {
-      toast.error('Error processing payment: ' + err.message);
-      setPaypalError(err.message);
-    }
   };
 
   // Handle regular order placement (without PayPal)
@@ -100,9 +57,7 @@ export const Cart = () => {
       const response = await saveOrder(orderItems, user.address, shippingFee, total, user.id);
 
       if (response.success) {
-        toast.success('Order processed successfully');
-        clearCart();
-        navigate('/order-success');
+        handlePaynow(response.order.id, orderItems, total, totalCartAmount, shippingFee, taxAmount);
       }
     } catch (err) {
       toast.error('Error processing order: ' + err.message);
@@ -180,7 +135,7 @@ export const Cart = () => {
 
             <h3 className="mt-4 text-sm">DELIVERY ADDRESS</h3>
             <div className="mt-2 w-full py-2 px-2 border border-gray-300 rounded">
-              {user.address}
+              {user?.address || 'No address provided'}
             </div>
 
             <hr className="mt-4 mb-4" />
@@ -205,47 +160,15 @@ export const Cart = () => {
               <p className="font-semibold text-md py-1 text-end">${total.toFixed(2)}</p>
             </div>
 
-            {paypalError && <div className="text-red-600 text-sm mb-4">{paypalError}</div>}
+            <p className="text-center text-gray-500 my-2">OR</p>
 
-            {paid ? (
-              <div className="bg-green-100 text-green-800 p-3 rounded-md text-center">
-                Payment successful! Redirecting...
-              </div>
-            ) : (
-              <>
-                <div className="mb-4">
-                  <PayPalScriptProvider
-                    options={{
-                      'client-id':
-                        'ATCu4G8WYruU5qmH1_QWeUr_A7P1Y_c5OlRZy_O9NtNnRB8lPL2C5Zdq5o7hocv8oCEnyyInROoTn0Ms',
-                      currency: 'USD',
-                      components: 'buttons',
-                    }}
-                  >
-                    <PayPalButtons
-                      style={{ layout: 'vertical', shape: 'pill' }}
-                      createOrder={createPayPalOrder}
-                      onApprove={onPayPalApprove}
-                      onError={(err) => {
-                        setPaypalError(err.message);
-                        toast.error('PayPal error: ' + err.message);
-                      }}
-                      disabled={isLoading || totalItems === 0}
-                    />
-                  </PayPalScriptProvider>
-                </div>
-
-                {/* <p className="text-center text-gray-500 my-2">OR</p>
-
-                <button
-                  onClick={handlePlaceOrder}
-                  disabled={isLoading}
-                  className="w-full bg-gray-700 text-white mt-2 py-2 rounded hover:bg-gray-800 transition-colors disabled:opacity-50"
-                >
-                  {isLoading ? <LoadingSpinner /> : <span>Place Order (Other Payment)</span>}
-                </button> */}
-              </>
-            )}
+            <button
+              onClick={handlePlaceOrder}
+              disabled={isLoading}
+              className="w-full bg-gray-700 text-white mt-2 py-2 rounded hover:bg-gray-800 transition-colors disabled:opacity-50"
+            >
+              {isLoading ? <LoadingSpinner /> : <span>Check out</span>}
+            </button>
           </div>
         </div>
       ) : (
