@@ -12,7 +12,7 @@ const OrderPaymentUpdate = () => {
     if (id) {
       updateOrder(id).then((success) => {
         if (success) {
-          toast.success('Order paid successfully');
+          // toast.success('Order paid successfully');
           navigate('/order-success');
         } else {
           setMessage('Failed to update order. Please contact the admin');
