@@ -16,7 +16,6 @@ import PasswordResetForm from './_auth/forms/PasswordResetForm';
 import ResetForm from './_auth/forms/ResetForm';
 import SellerDashboard from './_root/admin/pages/SellerDashboard';
 import OrderSuccess from './_root/user/pages/OrderSuccess';
-import PaynowCheckOut from './_root/user/pages/PaynowCheckOut';
 import OrderPaymentUpdate from './_root/user/pages/OrderPaymentUpdate';
 
 function App() {
