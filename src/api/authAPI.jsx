@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-const URL = 'https://smartech-backend.onrender.com/';
+const URL = 'https://smartech-backend.onrender.com/auth/';
 
 export async function createUser(user) {
   try {
