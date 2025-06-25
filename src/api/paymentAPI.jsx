@@ -1,7 +1,7 @@
 import { toast } from 'react-toastify';
 import axios from 'axios';
 
-const URL = 'http://localhost:3000/payment/';
+const URL = 'https://smartech-backend.onrender.com/';
 
 export async function handlePaynow(
   reference,
