@@ -6,8 +6,6 @@ import { useAuth } from '../../../context/AuthContext';
 import { saveOrder } from '../../../api/orderAPI';
 import { toast } from 'react-toastify';
 import LoadingSpinner from '../../../components/LoadingSpinner';
-import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
-import axios from 'axios';
 import { handlePaynow } from '../../../api/paymentAPI';
 
 export const Cart = () => {
