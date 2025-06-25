@@ -1,8 +1,7 @@
 {
   "routes": {
-    "/*": {
-      "origin": "/index.html",
-      "status": 200
-    }
+    "/dashboard": "/index.html",
+    "/dashboard/*": "/index.html",
+    "/*": "/index.html 200"
   }
 }
