@@ -1,7 +1,7 @@
-import { createContext, useState, useEffect } from "react";
-import { getAllProducts } from "../api/productAPI";
-import { getAllOrders } from "../api/orderAPI"; // Add this import
-import { loadImage } from "../utils/imageLoader";
+import { createContext, useState, useEffect } from 'react';
+import { getAllProducts } from '../api/productAPI';
+import { getAllOrders } from '../api/orderAPI'; // Add this import
+import { loadImage } from '../utils/imageLoader';
 
 export const ShopContext = createContext(null);
 
@@ -47,8 +47,8 @@ export const ShopContextProvider = (props) => {
     // Load images in parallel (same logic as Shop page)
     const imageLoadPromises = validProducts.map(async (product) => {
       if (product.image_path) {
-        const normalizedPath = product.image_path.replace(/\\/g, "/");
-        const fullImageUrl = `http://localhost:3000/${normalizedPath}`;
+        const normalizedPath = product.image_path.replace(/\\/g, '/');
+        const fullImageUrl = `https://smartech-backend.onrender.com/${normalizedPath}`;
         return {
           id: product.id,
           url: await loadImage(fullImageUrl),
@@ -73,7 +73,7 @@ export const ShopContextProvider = (props) => {
         setLoading(true);
         await fetchProductsData();
       } catch (error) {
-        console.error("Error fetching products:", error);
+        console.error('Error fetching products:', error);
         setError(error);
         setProducts([]);
         setCartItems({});
@@ -94,7 +94,7 @@ export const ShopContextProvider = (props) => {
       const validProducts = await fetchProductsData();
       return validProducts;
     } catch (error) {
-      console.error("Error fetching products:", error);
+      console.error('Error fetching products:', error);
       setError(error);
       setProducts([]);
       setCartItems({});
@@ -121,7 +121,7 @@ export const ShopContextProvider = (props) => {
         setOrders(validOrders);
         // console.log("Orders fetched successfully:", validOrders);
       } catch (error) {
-        console.error("Error fetching orders:", error);
+        console.error('Error fetching orders:', error);
         setOrdersError(error);
         setOrders([]);
       } finally {
@@ -142,7 +142,7 @@ export const ShopContextProvider = (props) => {
       setOrders(validOrders);
       return validOrders;
     } catch (error) {
-      console.error("Error fetching orders:", error);
+      console.error('Error fetching orders:', error);
       setOrdersError(error);
       setOrders([]);
       throw error;
@@ -154,13 +154,11 @@ export const ShopContextProvider = (props) => {
   // Function to get orders by user ID
   const getOrdersByUserId = (userId) => {
     if (!userId) {
-      console.warn("No user ID provided");
+      console.warn('No user ID provided');
       return [];
     }
 
-    return orders.filter(
-      (order) => order.user_id === userId || order.userId === userId
-    );
+    return orders.filter((order) => order.user_id === userId || order.userId === userId);
   };
 
   // Function to refresh orders (useful for after placing new orders)
@@ -170,7 +168,7 @@ export const ShopContextProvider = (props) => {
 
   // Helper function to get image URL for a product
   const getProductImageUrl = (productId) => {
-    return imageUrls[productId] || "/placeholder-image.jpg";
+    return imageUrls[productId] || '/placeholder-image.jpg';
   };
 
   const getTotalCartAmount = () => {
@@ -278,9 +276,5 @@ export const ShopContextProvider = (props) => {
   // console.log("Image URLs:", imageUrls);
   // console.log("Orders:", orders);
 
-  return (
-    <ShopContext.Provider value={contextValue}>
-      {props.children}
-    </ShopContext.Provider>
-  );
+  return <ShopContext.Provider value={contextValue}>{props.children}</ShopContext.Provider>;
 };
