@@ -70,9 +70,7 @@ export const UserDropdown = () => {
 
           {/* Menu Items */}
           <div className="py-2">
-            {user.user_type == 'Admin' ? (
-              <></>
-            ) : (
+            {user.user_type != 'Admin' && (
               <>
                 <button
                   onClick={() => handleMenuClick('cart')}
