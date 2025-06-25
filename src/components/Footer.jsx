@@ -1,6 +1,6 @@
-import { Envelope, MapPin, Phone } from "phosphor-react";
-import { NavLink, useLocation } from "react-router-dom";
-import { getNavItems } from "../partials/navItems";
+import { Envelope, MapPin, Phone } from 'phosphor-react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { getNavItems } from '../partials/navItems';
 
 const navItems = getNavItems;
 
@@ -13,10 +13,10 @@ export const Footer = () => {
         <div>
           <h3 className="text-1xl md:text-2xl font-bold mb-6">Smartech</h3>
           <p className="py">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quasi
-            ab doloribus quis soluta ipsum dolores cumque odit, beatae eligendi!
-            ipsum dolor sit amet consectetur adipisicing elit. Sunt quasi ab
-            doloribus quis soluta ipsum dolores cumque odit, beatae eligendi!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quasi ab doloribus quis
+            soluta ipsum dolores cumque odit, beatae eligendi! ipsum dolor sit amet consectetur
+            adipisicing elit. Sunt quasi ab doloribus quis soluta ipsum dolores cumque odit, beatae
+            eligendi!
           </p>
         </div>
         <div className="flex flex-col lg:flex-row justify-between gap-4">
@@ -29,8 +29,8 @@ export const Footer = () => {
                   to={navItem.to}
                   className={`${
                     pathname === navItem.to
-                      ? "text-primary"
-                      : "hover:text-primary transition-colors duration-300"
+                      ? 'text-primary'
+                      : 'hover:text-primary transition-colors duration-300'
                   }`}
                 >
                   {navItem.name}
@@ -58,7 +58,7 @@ export const Footer = () => {
         </div>
       </div>
       <div className="py-2 text-center border">
-        Copyright {new Date().getFullYear()} &copy; Netek, All Rights Reserved
+        Copyright {new Date().getFullYear()} &copy; Mutsah, All Rights Reserved
       </div>
     </footer>
   );
