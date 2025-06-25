@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3000/product/';
+const URL = 'https://smartech-backend.onrender.com/';
 
 export async function getAllProducts() {
   try {
