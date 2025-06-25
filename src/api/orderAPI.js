@@ -1,6 +1,6 @@
 import { toast } from 'react-toastify';
 
-const URL = 'https://smartech-backend.onrender.com/';
+const URL = 'https://smartech-backend.onrender.com/order/';
 
 export async function saveOrder(orderItems, address, shippingFee, total, user) {
   try {
