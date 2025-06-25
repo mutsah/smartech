@@ -1,13 +1,13 @@
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
-const URL = "http://localhost:3000/auth/";
+const URL = 'https://smartech-backend.onrender.com/';
 
 export async function createUser(user) {
   try {
     const response = await fetch(`${URL}signup`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         name: user.name,
@@ -34,9 +34,9 @@ export async function createUser(user) {
 export async function signIn(user) {
   try {
     const response = await fetch(`${URL}signin`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         email: user.email,
@@ -47,12 +47,12 @@ export async function signIn(user) {
     if (!response.ok) {
       const data = await response.json();
 
-      if (data.error == "user not found") {
-        toast.error("User does not exists");
-      } else if (data.error == "incorrect credentials") {
-        toast.error("Invalid credentials");
+      if (data.error == 'user not found') {
+        toast.error('User does not exists');
+      } else if (data.error == 'incorrect credentials') {
+        toast.error('Invalid credentials');
       } else {
-        toast.error("Error on sign in!");
+        toast.error('Error on sign in!');
       }
 
       return data;
@@ -69,9 +69,9 @@ export async function signIn(user) {
 export async function sendResetLink(user) {
   try {
     const response = await fetch(`${URL}send-reset-link`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         email: user.email,
@@ -94,9 +94,9 @@ export async function sendResetLink(user) {
 export async function resetPassword(user, email, reference) {
   try {
     const response = await fetch(`${URL}reset-password`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         email: email,
