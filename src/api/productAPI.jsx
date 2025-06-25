@@ -1,4 +1,4 @@
-const URL = 'https://smartech-backend.onrender.com/';
+const URL = 'https://smartech-backend.onrender.com/product/';
 
 export async function getAllProducts() {
   try {
