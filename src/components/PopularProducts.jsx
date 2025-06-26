@@ -1,14 +1,14 @@
-import { ArrowRight } from "lucide-react";
-import ProductCard from "./ProductCard";
-import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { ShopContext } from "../context/ShopContext";
+import { ArrowRight } from 'lucide-react';
+import ProductCard from './ProductCard';
+import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { ShopContext } from '../context/ShopContext';
 
 export const PopularProducts = () => {
   const navigate = useNavigate();
 
   const handleViewMoreClick = () => {
-    navigate("/shop");
+    navigate('/shop');
   };
 
   const { products, loading, error, imageUrls } = useContext(ShopContext);
@@ -23,11 +23,7 @@ export const PopularProducts = () => {
     );
 
   if (error)
-    return (
-      <div className="container mt-12 mb-16 text-red-500">
-        Error: {error.message}
-      </div>
-    );
+    return <div className="container mt-12 mb-16 text-red-500">Error: {error.message}</div>;
 
   return (
     <div className="mt-12">
@@ -36,12 +32,8 @@ export const PopularProducts = () => {
         <div className="ruler"></div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            imageUrl={imageUrls[product.id]}
-          />
+        {products.slice(0, 3).map((product) => (
+          <ProductCard key={product.id} product={product} imageUrl={imageUrls[product.id]} />
         ))}
       </div>
       <div className="flex items-center justify-center py-8">
