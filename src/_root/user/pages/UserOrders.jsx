@@ -13,11 +13,11 @@ const UserOrders = () => {
 
   const { user } = useAuth();
 
-  const userId = user.id;
+  // const userId = user.id;
 
-  // console.log(user);
+  console.log(user);
 
-  const userOrders = orders.filter((order) => order.userId === userId);
+  // const userOrders = orders.filter((order) => order.userId === userId);
 
   const openModal = (type, item = null) => {
     setModalType(type);
