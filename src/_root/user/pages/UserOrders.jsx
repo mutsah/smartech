@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext, useMemo, useState } from 'react';
 import { ShopContext } from '../../../context/ShopContext';
 import OrdersTab from '../../../components/OrdersTab';
 import Modal from '../../../components/Modal';
