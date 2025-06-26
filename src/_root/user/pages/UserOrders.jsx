@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { ShopContext } from '../../../context/ShopContext';
 import OrdersTab from '../../../components/OrdersTab';
+import Modal from '../../../components/Modal';
 
 const UserOrders = () => {
   const { orders } = useContext(ShopContext);
@@ -14,13 +15,20 @@ const UserOrders = () => {
 
   return (
     <div className="container py-8">
-      <div className="mb-6">
-        <h3 className="font-semibold text-2xl">All Products</h3>
-        <div className="ruler w-full h-px bg-gray-200"></div>
-      </div>
       <div className="">
         <OrdersTab orders={orders} onOpenModal={openModal} />
       </div>
+
+      <Modal
+        show={showModal}
+        type={modalType}
+        selectedProduct={selectedProduct}
+        selectedOrder={selectedOrder}
+        onClose={closeModal}
+        onAddProduct={handleAddProduct}
+        onDeleteProduct={handleDeleteProduct}
+        onUpdateOrderStatus={updateOrderStatus}
+      />
     </div>
   );
 };
