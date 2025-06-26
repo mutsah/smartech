@@ -38,6 +38,7 @@ export const UserDropdown = () => {
 
   const handleMenuClick = (action) => {
     setIsOpen(false);
+    navigate(`/${action}`);
   };
 
   return (
@@ -81,7 +82,7 @@ export const UserDropdown = () => {
                 </button>
 
                 <button
-                  onClick={() => handleMenuClick('my-orders')}
+                  onClick={() => handleMenuClick('orders')}
                   className="w-full px-4 py-3 text-left hover:bg-gray-50 transition-colors duration-150 flex items-center space-x-3"
                 >
                   <Package className="w-5 h-5 text-gray-500" />

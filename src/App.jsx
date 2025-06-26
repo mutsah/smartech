@@ -17,6 +17,7 @@ import ResetForm from './_auth/forms/ResetForm';
 import SellerDashboard from './_root/admin/pages/SellerDashboard';
 import OrderSuccess from './_root/user/pages/OrderSuccess';
 import OrderPaymentUpdate from './_root/user/pages/OrderPaymentUpdate';
+import UserOrders from './_root/user/pages/UserOrders';
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
                 path="/order-update/:id"
                 element={<OrderPaymentUpdate></OrderPaymentUpdate>}
               ></Route>
+              <Route path="/orders" element={<UserOrders></UserOrders>}></Route>
             </Route>
           </Routes>
         </ShopContextProvider>
