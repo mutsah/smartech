@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce System User Manual</title>
+    <style>
+      body {
+        font-family: 'Calibri', Arial, sans-serif;
+        line-height: 1.6;
+        max-width: 8.5in;
+        margin: 0 auto;
+        padding: 1in;
+        background-color: white;
+        color: #333;
+      }
+
+      .header {
+        text-align: center;
+        border-bottom: 3px solid #2c5aa0;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+      }
+
+      .title {
+        font-size: 28px;
+        font-weight: bold;
+        color: #2c5aa0;
+        margin-bottom: 10px;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        color: #666;
+        font-style: italic;
+      }
+
+      .toc {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border-left: 4px solid #2c5aa0;
+        margin-bottom: 30px;
+      }
+
+      .toc h2 {
+        color: #2c5aa0;
+        margin-top: 0;
+      }
+
+      .toc ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .toc li {
+        margin-bottom: 8px;
+        padding-left: 20px;
+      }
+
+      .toc a {
+        color: #333;
+        text-decoration: none;
+      }
+
+      .toc a:hover {
+        color: #2c5aa0;
+        text-decoration: underline;
+      }
+
+      h1 {
+        color: #2c5aa0;
+        font-size: 24px;
+        border-bottom: 2px solid #2c5aa0;
+        padding-bottom: 10px;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        page-break-before: always;
+      }
+
+      h1:first-of-type {
+        page-break-before: auto;
+      }
+
+      h2 {
+        color: #2c5aa0;
+        font-size: 20px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+      }
+
+      h3 {
+        color: #555;
+        font-size: 16px;
+        margin-top: 25px;
+        margin-bottom: 10px;
+      }
+
+      h4 {
+        color: #666;
+        font-size: 14px;
+        margin-top: 20px;
+        margin-bottom: 8px;
+      }
+
+      p {
+        margin-bottom: 12px;
+        text-align: justify;
+      }
+
+      ul,
+      ol {
+        margin-bottom: 15px;
+        padding-left: 25px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      .note {
+        background-color: #fff3cd;
+        border: 1px solid #ffeaa7;
+        border-left: 4px solid #f39c12;
+        padding: 12px;
+        margin: 15px 0;
+      }
+
+      .warning {
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-left: 4px solid #dc3545;
+        padding: 12px;
+        margin: 15px 0;
+      }
+
+      .info {
+        background-color: #d1ecf1;
+        border: 1px solid #bee5eb;
+        border-left: 4px solid #17a2b8;
+        padding: 12px;
+        margin: 15px 0;
+      }
+
+      .checklist {
+        background-color: #d4edda;
+        border: 1px solid #c3e6cb;
+        border-left: 4px solid #28a745;
+        padding: 15px;
+        margin: 20px 0;
+      }
+
+      .checklist h3 {
+        color: #155724;
+        margin-top: 0;
+      }
+
+      .checklist ul {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .checklist li:before {
+        content: '✅ ';
+        color: #28a745;
+        font-weight: bold;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #2c5aa0;
+        color: white;
+        font-weight: bold;
+      }
+
+      .section-divider {
+        border-top: 2px solid #e9ecef;
+        margin: 40px 0 30px 0;
+      }
+
+      .footer {
+        text-align: center;
+        font-style: italic;
+        color: #666;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #ddd;
+      }
+
+      @media print {
+        body {
+          padding: 0.5in;
+        }
+
+        .header {
+          page-break-after: avoid;
+        }
+
+        h1,
+        h2,
+        h3 {
+          page-break-after: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="title">E-COMMERCE SYSTEM</div>
+      <div class="subtitle">Complete User Manual</div>
+      <div style="margin-top: 15px; font-size: 14px; color: #888">
+        Version 1.0 | Customer & Administrator Guide
+      </div>
+    </div>
+
+    <div class="toc">
+      <h2>Table of Contents</h2>
+      <ul>
+        <li><a href="#getting-started">1. Getting Started</a></li>
+        <li><a href="#customer-guide">2. Customer Guide</a></li>
+        <li><a href="#administrator-guide">3. Administrator Guide</a></li>
+        <li><a href="#payment-information">4. Payment Information</a></li>
+        <li><a href="#troubleshooting">5. Troubleshooting</a></li>
+      </ul>
+    </div>
+
+    <h1 id="getting-started">1. Getting Started</h1>
+
+    <p>
+      Welcome to our comprehensive e-commerce platform! This manual will guide you through all the
+      features and functionality available to both customers and administrators.
+    </p>
+
+    <h2>System Requirements</h2>
+    <ul>
+      <li>Modern web browser (Chrome, Firefox, Safari, Edge)</li>
+      <li>Stable internet connection</li>
+      <li>JavaScript enabled in browser settings</li>
+      <li>Cookies enabled for proper session management</li>
+    </ul>
+
+    <div class="info">
+      <strong>Important:</strong> This system is designed to work seamlessly across desktop and
+      mobile devices. For the best experience, ensure your browser is updated to the latest version.
+    </div>
+
+    <h1 id="customer-guide">2. Customer Guide</h1>
+
+    <h2>2.1 Homepage Access</h2>
+    <p>Your shopping journey begins at our homepage where you can:</p>
+    <ul>
+      <li>Navigate to the website homepage without any login requirements</li>
+      <li>Browse featured products and promotional offers</li>
+      <li>View product categories and highlights</li>
+      <li>Access general information about our store</li>
+    </ul>
+
+    <div class="note">
+      <strong>Note:</strong> While you can browse products freely, purchasing requires creating an
+      account and logging in for security and order tracking purposes.
+    </div>
+
+    <h2>2.2 Account Management</h2>
+
+    <h3>Creating a New Account (Sign Up)</h3>
+    <ol>
+      <li>
+        Click on the <strong>"Sign Up"</strong> or <strong>"Register"</strong> button located in the
+        header
+      </li>
+      <li>
+        Complete the registration form with the following information:
+        <ul>
+          <li>Full name (first and last name)</li>
+          <li>Valid email address</li>
+          <li>Strong password (minimum 8 characters recommended)</li>
+          <li>Confirm password</li>
+          <li>Contact phone number</li>
+          <li>Shipping address</li>
+        </ul>
+      </li>
+      <li>Read and accept the terms of service and privacy policy</li>
+      <li>Click <strong>"Create Account"</strong> to complete registration</li>
+      <li>Check your email for a verification link (if required)</li>
+    </ol>
+
+    <h3>Logging In (Existing Users)</h3>
+    <ol>
+      <li>Click on the <strong>"Login"</strong> or <strong>"Sign In"</strong> button</li>
+      <li>Enter your registered email address</li>
+      <li>Enter your password</li>
+      <li>Click <strong>"Login"</strong> to access your account</li>
+      <li>You will be redirected to your account dashboard or the previous page</li>
+    </ol>
+
+    <h2>2.3 Shopping Experience</h2>
+
+    <h3>Accessing Products</h3>
+    <ol>
+      <li>After successful login, click on <strong>"Shop"</strong> in the main navigation menu</li>
+      <li>Browse through the complete catalog of available products</li>
+      <li>
+        Products are displayed in a grid layout with:
+        <ul>
+          <li>Product images</li>
+          <li>Product names</li>
+          <li>Price information</li>
+          <li>Brief descriptions</li>
+          <li>Availability status</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Search and Filter Functionality</h3>
+
+    <h4>Search Products</h4>
+    <ul>
+      <li>Locate the search bar at the top of the shop page</li>
+      <li>
+        Enter relevant keywords such as:
+        <ul>
+          <li>Product names</li>
+          <li>Brand names</li>
+          <li>Categories</li>
+          <li>Product features</li>
+        </ul>
+      </li>
+      <li>Press <strong>Enter</strong> or click the search button</li>
+      <li>View filtered results based on your search terms</li>
+    </ul>
+
+    <h4>Filter Products</h4>
+    <ul>
+      <li>
+        Use available filter options which may include:
+        <ul>
+          <li>Product categories</li>
+          <li>Brand names</li>
+          <li>Price ranges</li>
+          <li>Customer ratings</li>
+          <li>Availability status</li>
+        </ul>
+      </li>
+      <li>Apply multiple filters simultaneously to narrow down results</li>
+      <li>Clear all filters to return to the complete product catalog</li>
+    </ul>
+
+    <h3>Sorting Products</h3>
+    <p>Locate the <strong>"Sort"</strong> dropdown menu and choose from available options:</p>
+    <ul>
+      <li><strong>Price: High to Low</strong> - Most expensive items first</li>
+      <li><strong>Price: Low to High</strong> - Least expensive items first</li>
+      <li>
+        Additional sorting options may include popularity, newest arrivals, or customer ratings
+      </li>
+    </ul>
+
+    <h2>2.4 Product Details and Selection</h2>
+
+    <h3>Viewing Product Details</h3>
+    <ol>
+      <li>Click on any product image, name, or <strong>"View Details"</strong> button</li>
+      <li>
+        Access comprehensive product information including:
+        <ul>
+          <li>High-resolution product images</li>
+          <li>Detailed product description</li>
+          <li>Current price and any discounts</li>
+          <li>Technical specifications</li>
+          <li>Available options (size, color, variants)</li>
+          <li>Customer reviews and ratings</li>
+          <li>Stock availability</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Adding Products to Cart</h3>
+    <ol>
+      <li>
+        On the product detail page, select any required options:
+        <ul>
+          <li>Size (if applicable)</li>
+          <li>Color or style variations</li>
+          <li>Quantity desired</li>
+        </ul>
+      </li>
+      <li>Verify the product details and total price</li>
+      <li>Click the <strong>"Add to Cart"</strong> button</li>
+      <li>Receive confirmation that the item was successfully added</li>
+      <li>Choose to continue shopping or proceed to cart</li>
+    </ol>
+
+    <h2>2.5 Cart Management and Checkout</h2>
+
+    <h3>Viewing Your Shopping Cart</h3>
+    <ol>
+      <li>Click on the cart icon or <strong>"View Cart"</strong> button</li>
+      <li>
+        Review all items in your cart with the following details:
+        <ul>
+          <li>Product names and images</li>
+          <li>Selected options (size, color, etc.)</li>
+          <li>Individual quantities</li>
+          <li>Unit prices</li>
+          <li>Line totals</li>
+          <li>Subtotal</li>
+          <li>Estimated taxes</li>
+          <li>Shipping costs</li>
+          <li>Grand total</li>
+        </ul>
+      </li>
+      <li>
+        Make modifications as needed:
+        <ul>
+          <li>Update quantities</li>
+          <li>Remove unwanted items</li>
+          <li>Apply discount codes</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Checkout Process</h3>
+    <ol>
+      <li>
+        From your cart, click <strong>"Checkout"</strong> or <strong>"Proceed to Checkout"</strong>
+      </li>
+      <li>Review and confirm your order summary</li>
+      <li>
+        Enter or verify shipping information:
+        <ul>
+          <li>Delivery address</li>
+          <li>Contact information</li>
+          <li>Special delivery instructions</li>
+        </ul>
+      </li>
+      <li>Select preferred shipping method (if multiple options available)</li>
+      <li>Review total costs including shipping and taxes</li>
+      <li>Proceed to payment section</li>
+    </ol>
+
+    <h2>2.6 Payment Process</h2>
+    <p>Our system uses <strong>Paynow Sandbox</strong> for secure payment processing:</p>
+    <ol>
+      <li>Review final order total</li>
+      <li>Select payment method</li>
+      <li>Follow Paynow payment prompts</li>
+      <li>Complete transaction using provided test payment methods</li>
+      <li>Receive order confirmation with order number</li>
+      <li>Get email confirmation with order details</li>
+    </ol>
+
+    <div class="info">
+      <strong>Payment Security:</strong> All payment information is processed securely through
+      Paynow's encrypted system. We do not store your payment details on our servers.
+    </div>
+
+    <div class="section-divider"></div>
+
+    <h1 id="administrator-guide">3. Administrator Guide</h1>
+
+    <h2>3.1 Admin Login</h2>
+    <ol>
+      <li>Access the administrator panel through the designated admin URL</li>
+      <li>
+        Enter your administrator credentials:
+        <ul>
+          <li>Admin username or email</li>
+          <li>Admin password</li>
+        </ul>
+      </li>
+      <li>Click <strong>"Login"</strong> to access the admin dashboard</li>
+      <li>Navigate through the admin interface using the sidebar menu</li>
+    </ol>
+
+    <div class="warning">
+      <strong>Security Warning:</strong> Admin credentials should be kept confidential and changed
+      regularly. Never share admin access with unauthorized personnel.
+    </div>
+
+    <h2>3.2 Product Management</h2>
+
+    <h3>Adding New Products</h3>
+    <ol>
+      <li>Navigate to the <strong>"Products"</strong> section in the admin panel</li>
+      <li>Click <strong>"Add New Product"</strong> or similar button</li>
+      <li>
+        Complete the product information form:
+        <ul>
+          <li>Product name and SKU</li>
+          <li>Detailed description</li>
+          <li>Price and cost information</li>
+          <li>Product category</li>
+          <li>Product images (multiple images recommended)</li>
+          <li>Inventory quantity</li>
+          <li>Product specifications and attributes</li>
+          <li>SEO information (meta description, keywords)</li>
+        </ul>
+      </li>
+      <li>Set product status (active/inactive)</li>
+      <li>Save the product to make it available for purchase</li>
+    </ol>
+
+    <h3>Editing Existing Products</h3>
+    <ol>
+      <li>Go to the product list in the admin panel</li>
+      <li>Use search or browse to find the product you want to edit</li>
+      <li>Click the <strong>"Edit"</strong> button next to the product</li>
+      <li>Modify necessary information in the product form</li>
+      <li>Update product images if needed</li>
+      <li>Adjust inventory levels</li>
+      <li>Save changes to update the product</li>
+    </ol>
+
+    <h3>Deleting Products</h3>
+    <ol>
+      <li>Locate the product in the admin product list</li>
+      <li>Click the <strong>"Delete"</strong> button next to the product</li>
+      <li>Confirm deletion when prompted</li>
+    </ol>
+
+    <div class="warning">
+      <strong>Warning:</strong> Product deletion is permanent and cannot be undone. Consider
+      deactivating products instead of deleting them to preserve order history.
+    </div>
+
+    <h2>3.3 Order Management</h2>
+
+    <h3>Viewing Orders</h3>
+    <ol>
+      <li>Navigate to the <strong>"Orders"</strong> section in the admin panel</li>
+      <li>View comprehensive list of all customer orders</li>
+      <li>
+        Access detailed order information including:
+        <ul>
+          <li>Order number and date</li>
+          <li>Customer information and contact details</li>
+          <li>Ordered items with quantities and prices</li>
+          <li>Shipping address</li>
+          <li>Order total and payment status</li>
+          <li>Current order status</li>
+        </ul>
+      </li>
+      <li>
+        Use filters to sort orders by:
+        <ul>
+          <li>Date range</li>
+          <li>Order status</li>
+          <li>Customer name</li>
+          <li>Payment status</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Managing Order Status</h3>
+    <ul>
+      <li>
+        Update order status as orders progress:
+        <ul>
+          <li>Pending - Order received, awaiting processing</li>
+          <li>Processing - Order being prepared</li>
+          <li>Shipped - Order dispatched to customer</li>
+          <li>Delivered - Order received by customer</li>
+          <li>Cancelled - Order cancelled</li>
+        </ul>
+      </li>
+      <li>Add tracking information for shipped orders</li>
+      <li>Include notes for internal reference</li>
+      <li>Communicate order updates to customers via email</li>
+    </ul>
+
+    <div class="section-divider"></div>
+
+    <h1 id="payment-information">4. Payment Information</h1>
+
+    <h2>4.1 Paynow Sandbox Environment</h2>
+    <p>
+      The system currently integrates with <strong>Paynow Sandbox</strong> for payment processing
+      testing:
+    </p>
+
+    <ul>
+      <li><strong>Purpose:</strong> Safe testing environment for payment functionality</li>
+      <li><strong>Test Mode:</strong> No real money transactions occur</li>
+      <li><strong>Test Credentials:</strong> Use Paynow-provided test payment methods</li>
+      <li><strong>Transaction Simulation:</strong> All payment flows can be tested safely</li>
+    </ul>
+
+    <h2>4.2 Production Considerations</h2>
+    <p>For live operations, the following steps are required:</p>
+    <ul>
+      <li>Switch from Paynow Sandbox to live Paynow integration</li>
+      <li>Configure live payment credentials</li>
+      <li>Test all payment flows in production environment</li>
+      <li>Implement proper SSL certificates for secure transactions</li>
+      <li>Set up payment reconciliation processes</li>
+    </ul>
+
+    <div class="section-divider"></div>
+
+    <h1 id="troubleshooting">5. Troubleshooting</h1>
+
+    <h2>5.1 Common Customer Issues</h2>
+
+    <h3>Cannot Purchase Items (Login Required)</h3>
+    <p><strong>Problem:</strong> User cannot complete purchase</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+      <li>Ensure you are logged in to your account</li>
+      <li>Verify your account email has been confirmed</li>
+      <li>Check that selected items are currently in stock</li>
+      <li>Confirm your shopping cart is not empty</li>
+      <li>Try refreshing the page and logging in again</li>
+    </ul>
+
+    <h3>Login Problems</h3>
+    <p><strong>Problem:</strong> Cannot access account</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+      <li>Verify email address and password are entered correctly</li>
+      <li>Check if Caps Lock is enabled</li>
+      <li>Use the "Forgot Password" feature to reset your password</li>
+      <li>Clear browser cookies and cache</li>
+      <li>Try using a different browser</li>
+    </ul>
+
+    <h3>Payment Processing Issues</h3>
+    <p><strong>Problem:</strong> Payment cannot be completed</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+      <li>Ensure you're using valid test credentials in sandbox mode</li>
+      <li>Check your internet connection stability</li>
+      <li>Verify all required payment fields are completed</li>
+      <li>Try refreshing the payment page</li>
+      <li>Contact customer support if problems persist</li>
+    </ul>
+
+    <h3>Search and Filter Issues</h3>
+    <p><strong>Problem:</strong> Search not returning expected results</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+      <li>Check spelling of search terms</li>
+      <li>Try using broader or alternative keywords</li>
+      <li>Clear all active filters and search again</li>
+      <li>Ensure products you're searching for are in stock</li>
+    </ul>
+
+    <h2>5.2 Common Administrator Issues</h2>
+
+    <h3>Cannot Add or Edit Products</h3>
+    <p><strong>Problem:</strong> Product management functions not working</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+      <li>Ensure all required fields are completed</li>
+      <li>Check image file formats and sizes meet requirements</li>
+      <li>Verify you have proper administrator permissions</li>
+      <li>Try uploading images one at a time</li>
+      <li>Check for special characters in product names</li>
+    </ul>
+
+    <h3>Orders Not Displaying</h3>
+    <p><strong>Problem:</strong> Cannot view customer orders</p>
+    <p><strong>Solutions:</strong></p>
+    <ul>
+      <li>Refresh the admin panel page</li>
+      <li>Check date range filters</li>
+      <li>Verify your admin account has order viewing permissions</li>
+      <li>Clear browser cache and cookies</li>
+    </ul>
+
+    <h2>5.3 Getting Additional Help</h2>
+    <p>If you continue to experience issues after trying the above solutions:</p>
+    <ol>
+      <li>Check your internet connection and browser compatibility</li>
+      <li>Clear your browser cache and cookies completely</li>
+      <li>Try accessing the system from a different device or browser</li>
+      <li>Contact the system administrator with specific error details</li>
+      <li>Report bugs to the development team with screenshots if possible</li>
+    </ol>
+
+    <div class="info">
+      <strong>Support Information:</strong> When contacting support, please provide your account
+      email, the steps you were taking when the issue occurred, and any error messages you received.
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div class="checklist">
+      <h3>System Features Summary</h3>
+
+      <h4>Customer Features</h4>
+      <ul>
+        <li>Browse homepage without login requirement</li>
+        <li>User registration and secure login system</li>
+        <li>Comprehensive product browsing and search</li>
+        <li>Advanced product filtering and sorting</li>
+        <li>Detailed product views with descriptions</li>
+        <li>Shopping cart functionality</li>
+        <li>Secure checkout process</li>
+        <li>Paynow payment integration</li>
+      </ul>
+
+      <h4>Administrator Features</h4>
+      <ul>
+        <li>Secure admin login portal</li>
+        <li>Add new products with full details</li>
+        <li>Edit existing product information</li>
+        <li>Delete products when necessary</li>
+        <li>View all customer orders</li>
+        <li>Complete order management system</li>
+      </ul>
+    </div>
+
+    <div class="footer">
+      <p>
+        <em
+          >This manual covers the current functionality of the e-commerce system. For additional
+          features, updates, or technical support, please contact the system administrator or
+          development team.</em
+        >
+      </p>
+      <p><strong>Document Version:</strong> 1.0 | <strong>Last Updated:</strong> June 2025</p>
+    </div>
+  </body>
+</html>
