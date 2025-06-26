@@ -308,7 +308,7 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
                 <Upload className="mx-auto h-12 w-12 text-gray-400" />
                 <div className="flex text-sm text-gray-600">
                   <label className="relative cursor-pointer bg-white rounded-md font-medium text-green-600 hover:text-green-500">
-                    <span>Upload a file</span>
+                    <p>Upload a file</p>
                     <input
                       type="file"
                       className="sr-only"
