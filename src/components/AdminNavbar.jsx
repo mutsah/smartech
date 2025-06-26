@@ -57,9 +57,10 @@ const AdminNavBar = () => {
   return (
     <div className="bg-white shadow-sm border-b">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex justify-between items-center">
-        <h1 className="text-1xl md:text-2xl font-bold">
-          <span className="text-primary  text-3xl"></span>Smartech
-        </h1>
+        <button onClick={() => navigate('/')}>
+          {' '}
+          <h1 className="text-1xl md:text-2xl font-bold">Smartech</h1>
+        </button>
 
         {isLoggedIn ? (
           <div className="flex space-x-2 items-center ">
