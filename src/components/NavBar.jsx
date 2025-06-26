@@ -1,10 +1,11 @@
 import { ShoppingCartIcon } from 'lucide-react';
 import { List, X } from 'phosphor-react';
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { UserDropdown } from './UserDropdown';
 import { getNavItems } from '../partials/navItems';
 import { useAuth } from '../context/AuthContext';
+import { ShopContext } from '../context/ShopContext';
 
 const navItems = getNavItems;
 
@@ -14,10 +15,11 @@ const NavBar = () => {
   const { pathname } = location;
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   const [isOpen, setIsOpen] = useState(false);
 
   const { isLoggedIn } = useAuth();
+
+  const { cartItems } = useContext(ShopContext);
 
   const dropdownRef = useRef(null);
 
@@ -38,6 +40,9 @@ const NavBar = () => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+
+  // Calculate total items in cart
+  const totalCartItems = cartItems?.length || 0;
 
   return (
     <div className="w-full shadow-md">
@@ -92,21 +97,26 @@ const NavBar = () => {
           <div className="flex space-x-2 items-center ">
             <NavLink
               to="cart"
-              className={`${
+              className={`relative ${
                 pathname === '/cart'
                   ? 'text-primary'
                   : 'hover:text-primary transition-colors duration-300'
               }`}
             >
-              <ShoppingCartIcon size={24}></ShoppingCartIcon>
+              <ShoppingCartIcon size={24} />
+              {totalCartItems > 0 && (
+                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  {totalCartItems > 99 ? '99+' : totalCartItems}
+                </span>
+              )}
             </NavLink>
 
-            <UserDropdown></UserDropdown>
+            <UserDropdown />
             <button
               onClick={() => setIsMenuOpen((prev) => !prev)}
               className="md:hidden text-foreground z-50"
             >
-              {isMenuOpen ? <X size={24}></X> : <List size={24}></List>}
+              {isMenuOpen ? <X size={24} /> : <List size={24} />}
             </button>
           </div>
         ) : (
