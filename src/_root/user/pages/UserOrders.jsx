@@ -20,6 +20,13 @@ const UserOrders = () => {
     setShowModal(true);
   };
 
+  const closeModal = () => {
+    setShowModal(false);
+    setModalType('');
+    setSelectedProduct(null);
+    setSelectedOrder(null);
+  };
+
   return (
     <div className="container py-8">
       <div className="">
