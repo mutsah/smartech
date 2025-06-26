@@ -13,11 +13,10 @@ const UserOrders = () => {
 
   const { user } = useAuth();
 
-  // const userId = user.id;
-
-  console.log(user);
-
-  // const userOrders = orders.filter((order) => order.userId === userId);
+  const userOrders = useMemo(() => {
+    if (!user?.id || !orders) return [];
+    return orders.filter((order) => order.userId === user.id);
+  }, [orders, user?.id]);
 
   const openModal = (type, item = null) => {
     setModalType(type);
@@ -35,7 +34,7 @@ const UserOrders = () => {
   return (
     <div className="container py-8">
       <div className="">
-        <OrdersTab orders={orders} onOpenModal={openModal} />
+        <OrdersTab orders={userOrders} onOpenModal={openModal} />
       </div>
 
       <Modal
