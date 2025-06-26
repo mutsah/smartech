@@ -9,7 +9,7 @@ const UserOrders = () => {
 
   const { orders, user } = useContext(ShopContext);
 
-  const userId = user.id;
+  // const userId = user.id;
 
   console.log(user);
 
