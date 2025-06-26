@@ -15,7 +15,7 @@ const UserOrders = () => {
 
   // const userId = user.id;
 
-  console.log(user);
+  console.log(user.id);
 
   // const userOrders = orders.filter((order) => order.userId === userId);
 
