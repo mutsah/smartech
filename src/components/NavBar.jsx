@@ -1,10 +1,10 @@
-import { ShoppingCartIcon } from "lucide-react";
-import { List, X } from "phosphor-react";
-import { useEffect, useRef, useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
-import { UserDropdown } from "./UserDropdown";
-import { getNavItems } from "../partials/navItems";
-import { useAuth } from "../context/AuthContext";
+import { ShoppingCartIcon } from 'lucide-react';
+import { List, X } from 'phosphor-react';
+import { useEffect, useRef, useState } from 'react';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { UserDropdown } from './UserDropdown';
+import { getNavItems } from '../partials/navItems';
+import { useAuth } from '../context/AuthContext';
 
 const navItems = getNavItems;
 
@@ -29,9 +29,9 @@ const NavBar = () => {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener('mousedown', handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
@@ -42,9 +42,10 @@ const NavBar = () => {
   return (
     <div className="w-full shadow-md">
       <div className="container py-2 flex justify-between items-center">
-        <h1 className="text-1xl md:text-2xl font-bold">
-          <span className="text-primary  text-3xl"></span>Smartech
-        </h1>
+        <button onClick={() => navigate('/')}>
+          {' '}
+          <h1 className="text-1xl md:text-2xl font-bold">Smartech</h1>
+        </button>
 
         {/* desktop nav */}
         <div className="hidden md:flex space-x-8">
@@ -54,8 +55,8 @@ const NavBar = () => {
               to={navItem.to}
               className={`${
                 pathname === navItem.to
-                  ? "text-primary"
-                  : "hover:text-primary transition-colors duration-300"
+                  ? 'text-primary'
+                  : 'hover:text-primary transition-colors duration-300'
               }`}
             >
               {navItem.name}
@@ -66,9 +67,7 @@ const NavBar = () => {
         {/* mobile nav */}
         <div
           className={`fixed inset-0 bg-background z-40 flex flex-col items-center justify-center transition-all duration-300 md:hidden ${
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
+            isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
         >
           <div className="flex flex-col space-y-8 text-xl">
@@ -79,8 +78,8 @@ const NavBar = () => {
                 onClick={() => setIsMenuOpen(false)}
                 className={`${
                   pathname === navItem.to
-                    ? "text-primary"
-                    : "hover:text-primary transition-colors duration-300"
+                    ? 'text-primary'
+                    : 'hover:text-primary transition-colors duration-300'
                 }`}
               >
                 {navItem.name}
@@ -94,9 +93,9 @@ const NavBar = () => {
             <NavLink
               to="cart"
               className={`${
-                pathname === "/cart"
-                  ? "text-primary"
-                  : "hover:text-primary transition-colors duration-300"
+                pathname === '/cart'
+                  ? 'text-primary'
+                  : 'hover:text-primary transition-colors duration-300'
               }`}
             >
               <ShoppingCartIcon size={24}></ShoppingCartIcon>
@@ -112,10 +111,7 @@ const NavBar = () => {
           </div>
         ) : (
           <>
-            <NavLink
-              to="/sign-in"
-              className="border border-primary rounded-full px-4 text-primary"
-            >
+            <NavLink to="/sign-in" className="border border-primary rounded-full px-4 text-primary">
               Login
             </NavLink>
           </>
