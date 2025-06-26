@@ -1,5 +1,5 @@
-import { ArrowRight } from "lucide-react";
-import { getTopProduct } from "../partials/products";
+import { ArrowRight } from 'lucide-react';
+import { getTopProduct } from '../partials/products';
 
 export const TopProduct = () => {
   return (
@@ -8,9 +8,9 @@ export const TopProduct = () => {
         <div className="flex flex-col items-center" key={key}>
           <h3 className="font-semibold text-2xl">{product.title}</h3>
           <p className="w-[60%] text-center py-3">{product.description}</p>
-          <button className="bg-primary text-white mt-2 py-1 px-5 flex items-center gap-2 rounded-sm">
+          {/* <button className="bg-primary text-white mt-2 py-1 px-5 flex items-center gap-2 rounded-sm">
             Buy Now <ArrowRight size={16}></ArrowRight>
-          </button>
+          </button> */}
         </div>
       ))}
     </div>
