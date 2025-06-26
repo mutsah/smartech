@@ -23,7 +23,6 @@ const NavBar = () => {
 
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -41,7 +40,6 @@ const NavBar = () => {
     setIsOpen(!isOpen);
   };
 
-  // Calculate total items in cart
   const totalCartItems = cartItems?.length || 0;
 
   return (
