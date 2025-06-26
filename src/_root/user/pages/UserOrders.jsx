@@ -7,6 +7,7 @@ import { useAuth } from '../../../context/AuthContext';
 const UserOrders = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
   const { orders } = useContext(ShopContext);
 
@@ -40,7 +41,7 @@ const UserOrders = () => {
         show={showModal}
         type={modalType}
         selectedProduct=""
-        selectedOrder=""
+        selectedOrder={selectedOrder}
         onClose={closeModal}
         onAddProduct=""
         onDeleteProduct=""
