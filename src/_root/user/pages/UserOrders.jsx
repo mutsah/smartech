@@ -11,19 +11,19 @@ const UserOrders = () => {
 
   const userId = user.id;
 
-  const userOrders = orders.filter((order) => order.userId === userId);
+  console.log(user);
+
+  // const userOrders = orders.filter((order) => order.userId === userId);
 
   const openModal = (type, item = null) => {
     setModalType(type);
-    setSelectedProduct(item);
-    setSelectedOrder(item);
     setShowModal(true);
   };
 
   return (
     <div className="container py-8">
       <div className="">
-        <OrdersTab orders={userOrders} onOpenModal={openModal} />
+        <OrdersTab orders={orders} onOpenModal={openModal} />
       </div>
 
       <Modal
