@@ -409,18 +409,13 @@
       <li>Complete transaction using provided test payment methods</li>
     </ol>
 
-    <div class="info">
-      <strong>Payment Security:</strong> All payment information is processed securely through
-      Paynow's encrypted system. We do not store your payment details on our servers.
-    </div>
-
     <div class="section-divider"></div>
 
     <h1 id="administrator-guide">3. Administrator Guide</h1>
 
     <h2>3.1 Admin Login</h2>
     <ol>
-      <li>Access the administrator panel through the designated admin URL</li>
+      <li>Access the login page</li>
       <li>
         Enter your administrator credentials:
         <ul>
@@ -428,66 +423,52 @@
           <li>Admin password</li>
         </ul>
       </li>
-      <li>Click <strong>"Login"</strong> to access the admin dashboard</li>
-      <li>Navigate through the admin interface using the sidebar menu</li>
+      <li>Click <strong>"Sign up"</strong> to access the admin dashboard</li>
     </ol>
-
-    <div class="warning">
-      <strong>Security Warning:</strong> Admin credentials should be kept confidential and changed
-      regularly. Never share admin access with unauthorized personnel.
-    </div>
 
     <h2>3.2 Product Management</h2>
 
     <h3>Adding New Products</h3>
     <ol>
-      <li>Navigate to the <strong>"Products"</strong> section in the admin panel</li>
+      <li>Navigate to the <strong>"Products"</strong> tab in the admin panel</li>
       <li>Click <strong>"Add New Product"</strong> or similar button</li>
       <li>
         Complete the product information form:
         <ul>
-          <li>Product name and SKU</li>
+          <li>Product name </li>
           <li>Detailed description</li>
-          <li>Price and cost information</li>
+          <li>Price </li>
           <li>Product category</li>
-          <li>Product images (multiple images recommended)</li>
+          <li>Product images </li>
           <li>Inventory quantity</li>
-          <li>Product specifications and attributes</li>
-          <li>SEO information (meta description, keywords)</li>
         </ul>
       </li>
-      <li>Set product status (active/inactive)</li>
       <li>Save the product to make it available for purchase</li>
     </ol>
 
     <h3>Editing Existing Products</h3>
     <ol>
-      <li>Go to the product list in the admin panel</li>
-      <li>Use search or browse to find the product you want to edit</li>
-      <li>Click the <strong>"Edit"</strong> button next to the product</li>
+      <li>Go to the product grid</li>
+      <li>Find the product you want to edit</li>
+      <li>Click the <strong>"Edit"</strong> button</li>
       <li>Modify necessary information in the product form</li>
       <li>Update product images if needed</li>
-      <li>Adjust inventory levels</li>
       <li>Save changes to update the product</li>
     </ol>
 
     <h3>Deleting Products</h3>
     <ol>
-      <li>Locate the product in the admin product list</li>
+      <li>Locate the product in the admin product grid</li>
       <li>Click the <strong>"Delete"</strong> button next to the product</li>
       <li>Confirm deletion when prompted</li>
     </ol>
 
-    <div class="warning">
-      <strong>Warning:</strong> Product deletion is permanent and cannot be undone. Consider
-      deactivating products instead of deleting them to preserve order history.
-    </div>
 
     <h2>3.3 Order Management</h2>
 
     <h3>Viewing Orders</h3>
     <ol>
-      <li>Navigate to the <strong>"Orders"</strong> section in the admin panel</li>
+      <li>Navigate to the <strong>"Orders"</strong> tab in the admin panel</li>
       <li>View comprehensive list of all customer orders</li>
       <li>
         Access detailed order information including:
@@ -500,33 +481,8 @@
           <li>Current order status</li>
         </ul>
       </li>
-      <li>
-        Use filters to sort orders by:
-        <ul>
-          <li>Date range</li>
-          <li>Order status</li>
-          <li>Customer name</li>
-          <li>Payment status</li>
-        </ul>
-      </li>
     </ol>
 
-    <h3>Managing Order Status</h3>
-    <ul>
-      <li>
-        Update order status as orders progress:
-        <ul>
-          <li>Pending - Order received, awaiting processing</li>
-          <li>Processing - Order being prepared</li>
-          <li>Shipped - Order dispatched to customer</li>
-          <li>Delivered - Order received by customer</li>
-          <li>Cancelled - Order cancelled</li>
-        </ul>
-      </li>
-      <li>Add tracking information for shipped orders</li>
-      <li>Include notes for internal reference</li>
-      <li>Communicate order updates to customers via email</li>
-    </ul>
 
     <div class="section-divider"></div>
 
@@ -541,141 +497,17 @@
     <ul>
       <li><strong>Purpose:</strong> Safe testing environment for payment functionality</li>
       <li><strong>Test Mode:</strong> No real money transactions occur</li>
-      <li><strong>Test Credentials:</strong> Use Paynow-provided test payment methods</li>
       <li><strong>Transaction Simulation:</strong> All payment flows can be tested safely</li>
     </ul>
 
-    <h2>4.2 Production Considerations</h2>
-    <p>For live operations, the following steps are required:</p>
-    <ul>
-      <li>Switch from Paynow Sandbox to live Paynow integration</li>
-      <li>Configure live payment credentials</li>
-      <li>Test all payment flows in production environment</li>
-      <li>Implement proper SSL certificates for secure transactions</li>
-      <li>Set up payment reconciliation processes</li>
-    </ul>
 
-    <div class="section-divider"></div>
 
-    <h1 id="troubleshooting">5. Troubleshooting</h1>
 
-    <h2>5.1 Common Customer Issues</h2>
-
-    <h3>Cannot Purchase Items (Login Required)</h3>
-    <p><strong>Problem:</strong> User cannot complete purchase</p>
-    <p><strong>Solutions:</strong></p>
-    <ul>
-      <li>Ensure you are logged in to your account</li>
-      <li>Verify your account email has been confirmed</li>
-      <li>Check that selected items are currently in stock</li>
-      <li>Confirm your shopping cart is not empty</li>
-      <li>Try refreshing the page and logging in again</li>
-    </ul>
-
-    <h3>Login Problems</h3>
-    <p><strong>Problem:</strong> Cannot access account</p>
-    <p><strong>Solutions:</strong></p>
-    <ul>
-      <li>Verify email address and password are entered correctly</li>
-      <li>Check if Caps Lock is enabled</li>
-      <li>Use the "Forgot Password" feature to reset your password</li>
-      <li>Clear browser cookies and cache</li>
-      <li>Try using a different browser</li>
-    </ul>
-
-    <h3>Payment Processing Issues</h3>
-    <p><strong>Problem:</strong> Payment cannot be completed</p>
-    <p><strong>Solutions:</strong></p>
-    <ul>
-      <li>Ensure you're using valid test credentials in sandbox mode</li>
-      <li>Check your internet connection stability</li>
-      <li>Verify all required payment fields are completed</li>
-      <li>Try refreshing the payment page</li>
-      <li>Contact customer support if problems persist</li>
-    </ul>
-
-    <h3>Search and Filter Issues</h3>
-    <p><strong>Problem:</strong> Search not returning expected results</p>
-    <p><strong>Solutions:</strong></p>
-    <ul>
-      <li>Check spelling of search terms</li>
-      <li>Try using broader or alternative keywords</li>
-      <li>Clear all active filters and search again</li>
-      <li>Ensure products you're searching for are in stock</li>
-    </ul>
-
-    <h2>5.2 Common Administrator Issues</h2>
-
-    <h3>Cannot Add or Edit Products</h3>
-    <p><strong>Problem:</strong> Product management functions not working</p>
-    <p><strong>Solutions:</strong></p>
-    <ul>
-      <li>Ensure all required fields are completed</li>
-      <li>Check image file formats and sizes meet requirements</li>
-      <li>Verify you have proper administrator permissions</li>
-      <li>Try uploading images one at a time</li>
-      <li>Check for special characters in product names</li>
-    </ul>
-
-    <h3>Orders Not Displaying</h3>
-    <p><strong>Problem:</strong> Cannot view customer orders</p>
-    <p><strong>Solutions:</strong></p>
-    <ul>
-      <li>Refresh the admin panel page</li>
-      <li>Check date range filters</li>
-      <li>Verify your admin account has order viewing permissions</li>
-      <li>Clear browser cache and cookies</li>
-    </ul>
-
-    <h2>5.3 Getting Additional Help</h2>
-    <p>If you continue to experience issues after trying the above solutions:</p>
-    <ol>
-      <li>Check your internet connection and browser compatibility</li>
-      <li>Clear your browser cache and cookies completely</li>
-      <li>Try accessing the system from a different device or browser</li>
-      <li>Contact the system administrator with specific error details</li>
-      <li>Report bugs to the development team with screenshots if possible</li>
-    </ol>
-
-    <div class="info">
-      <strong>Support Information:</strong> When contacting support, please provide your account
-      email, the steps you were taking when the issue occurred, and any error messages you received.
-    </div>
-
-    <div class="section-divider"></div>
-
-    <div class="checklist">
-      <h3>System Features Summary</h3>
-
-      <h4>Customer Features</h4>
-      <ul>
-        <li>Browse homepage without login requirement</li>
-        <li>User registration and secure login system</li>
-        <li>Comprehensive product browsing and search</li>
-        <li>Advanced product filtering and sorting</li>
-        <li>Detailed product views with descriptions</li>
-        <li>Shopping cart functionality</li>
-        <li>Secure checkout process</li>
-        <li>Paynow payment integration</li>
-      </ul>
-
-      <h4>Administrator Features</h4>
-      <ul>
-        <li>Secure admin login portal</li>
-        <li>Add new products with full details</li>
-        <li>Edit existing product information</li>
-        <li>Delete products when necessary</li>
-        <li>View all customer orders</li>
-        <li>Complete order management system</li>
-      </ul>
-    </div>
 
     <div class="footer">
       <p>
         <em
-          >This manual covers the current functionality of the e-commerce system. For additional
-          features, updates, or technical support, please contact the system administrator or
-          development team.</em
+          >This manual covers the current functionality of the e-commerce system.</em
         >
       </p>
       <p><strong>Document Version:</strong> 1.0 | <strong>Last Updated:</strong> June 2025</p>
