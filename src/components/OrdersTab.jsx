@@ -16,7 +16,7 @@ const OrdersTab = ({ orders, onOpenModal }) => {
   };
 
   return (
-    <div className="p-6">
+    <div className="">
       <h2 className="text-xl font-semibold text-gray-900 mb-6">Orders</h2>
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
