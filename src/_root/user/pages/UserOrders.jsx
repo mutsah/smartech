@@ -2,18 +2,21 @@ import { useContext, useState } from 'react';
 import { ShopContext } from '../../../context/ShopContext';
 import OrdersTab from '../../../components/OrdersTab';
 import Modal from '../../../components/Modal';
+import { useAuth } from '../../../context/AuthContext';
 
 const UserOrders = () => {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
 
-  const { orders, user } = useContext(ShopContext);
+  const { orders } = useContext(ShopContext);
 
-  // const userId = user.id;
+  const { user } = useAuth();
 
-  console.log(user);
+  const userId = user.id;
 
-  // const userOrders = orders.filter((order) => order.userId === userId);
+  // console.log(user);
+
+  const userOrders = orders.filter((order) => order.userId === userId);
 
   const openModal = (type, item = null) => {
     setModalType(type);
