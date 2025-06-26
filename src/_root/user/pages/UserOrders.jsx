@@ -1,10 +1,17 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { ShopContext } from '../../../context/ShopContext';
 import OrdersTab from '../../../components/OrdersTab';
 import Modal from '../../../components/Modal';
 
 const UserOrders = () => {
-  const { orders } = useContext(ShopContext);
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState('');
+
+  const { orders, user } = useContext(ShopContext);
+
+  const userId = user.id;
+
+  const userOrders = orders.filter((order) => order.userId === userId);
 
   const openModal = (type, item = null) => {
     setModalType(type);
@@ -16,18 +23,18 @@ const UserOrders = () => {
   return (
     <div className="container py-8">
       <div className="">
-        <OrdersTab orders={orders} onOpenModal={openModal} />
+        <OrdersTab orders={userOrders} onOpenModal={openModal} />
       </div>
 
       <Modal
         show={showModal}
         type={modalType}
-        selectedProduct={selectedProduct}
-        selectedOrder={selectedOrder}
+        selectedProduct=""
+        selectedOrder=""
         onClose={closeModal}
-        onAddProduct={handleAddProduct}
-        onDeleteProduct={handleDeleteProduct}
-        onUpdateOrderStatus={updateOrderStatus}
+        onAddProduct=""
+        onDeleteProduct=""
+        onUpdateOrderStatus=""
       />
     </div>
   );
