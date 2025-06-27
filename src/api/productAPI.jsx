@@ -32,6 +32,7 @@ export async function addProduct(productData) {
     formData.append('price', productData.price);
     formData.append('stock', productData.stock);
     formData.append('category', productData.category);
+    formData.append('sku', productData.sku);
 
     if (productData.image) {
       formData.append('image', productData.image);

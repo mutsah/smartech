@@ -14,6 +14,7 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
     stock: '',
     category: '',
     image: null,
+    sku: '',
     imageFile: null, // Store the actual File object
     imagePreview: null, // Store the preview URL
   });
@@ -32,6 +33,7 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
         description: product.description || '',
         stock: product.stock || '',
         category: product.category || '',
+        sku: product.sku || '',
         image: product.image || null,
         imageFile: null,
         imagePreview: product.image || null,
@@ -44,6 +46,7 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
         description: '',
         stock: '',
         category: '',
+        sku: '',
         image: null,
         imageFile: null,
         imagePreview: null,
@@ -108,6 +111,10 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
       newErrors.description = 'Description is required';
     }
 
+    if (!formData.sku) {
+      newErrors.sku = 'SKU is required';
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -139,6 +146,7 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
             description: '',
             stock: '',
             category: '',
+            sku: '',
             image: null,
             imageFile: null,
             imagePreview: null,
@@ -163,6 +171,7 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
             description: '',
             stock: '',
             category: '',
+            sku: '',
             image: null,
             imageFile: null,
             imagePreview: null,
@@ -275,6 +284,21 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
           placeholder="Enter product description "
         />
         {errors.description && <p className="text-red-500 text-xs mt-1">{errors.description}</p>}
+      </div>
+
+      <div className="">
+        <label className="block text-sm font-medium text-gray-700 mb-1">SKU *</label>
+        <input
+          type="text"
+          name="sku"
+          value={formData.sku}
+          onChange={handleInputChange}
+          min="0"
+          className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 ${
+            errors.sku ? 'border-red-300' : 'border-gray-300'
+          }`}
+          placeholder="0"
+        />
       </div>
 
       <div>
