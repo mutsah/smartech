@@ -1,7 +1,7 @@
-import { useAuth } from "../context/AuthContext";
-import Stars from "./StarRating";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { useAuth } from '../context/AuthContext';
+import Stars from './StarRating';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ProductCard = ({ product, imageUrl }) => {
   const navigate = useNavigate();
@@ -19,11 +19,11 @@ const ProductCard = ({ product, imageUrl }) => {
           },
         });
       } else {
-        toast.warning("Log in first to buy products!");
-        navigate("/sign-in");
+        toast.warning('To view more or open shop, please log in');
+        navigate('/sign-in');
       }
     } catch (error) {
-      console.error("Navigation failed:", error);
+      console.error('Navigation failed:', error);
       window.location.href = `/product/${product.id}`;
     }
   };
@@ -36,22 +36,20 @@ const ProductCard = ({ product, imageUrl }) => {
             alt={product.title}
             className="w-full h-full object-cover rounded-xl"
             onError={(e) => {
-              e.target.style.display = "none";
-              e.target.nextSibling.style.display = "block";
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'block';
             }}
           />
         ) : null}
         <div
           className={`w-full h-full bg-gray-200 flex items-center justify-center ${
-            imageUrl ? "hidden" : "block"
+            imageUrl ? 'hidden' : 'block'
           }`}
         >
           <span className="text-gray-500">Image not available</span>
         </div>
       </div>
-      <h3 className="mt-4 text-sm font-semibold text-gray-800">
-        {product.title}
-      </h3>
+      <h3 className="mt-4 text-sm font-semibold text-gray-800">{product.title}</h3>
 
       <div className="mt-2 flex items-center justify-between">
         <div className="flex items-center text-sm text-yellow-500">
@@ -59,9 +57,7 @@ const ProductCard = ({ product, imageUrl }) => {
             <Stars rating={product.rating}></Stars>
           </span>
         </div>
-        <span className="text-lg font-bold text-gray-800">
-          ${product.price}
-        </span>
+        <span className="text-lg font-bold text-gray-800">${product.price}</span>
       </div>
       <button
         onClick={handleBuyNowClick}
