@@ -1,27 +1,27 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { createUser } from "../../api/authAPI";
-import { toast } from "react-toastify";
-import LoadingSpinner from "../../components/LoadingSpinner";
+import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { createUser } from '../../api/authAPI';
+import { toast } from 'react-toastify';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const SignUpForm = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [user, setUser] = useState({
-    name: "",
-    email: "",
-    address: "",
-    mobileNumber: "",
-    password: "",
-    confirmPassword: "",
+    name: '',
+    email: '',
+    address: '',
+    mobileNumber: '',
+    password: '',
+    confirmPassword: '',
   });
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     const updatedUser = { ...user, [name]: value };
 
-    if (name === "password" || name === "confirmPassword") {
+    if (name === 'password' || name === 'confirmPassword') {
       setPasswordsMatch(updatedUser.password === updatedUser.confirmPassword);
     }
 
@@ -35,20 +35,20 @@ const SignUpForm = () => {
     try {
       const response = await createUser(user);
       if (response.success) {
-        toast.success("Registered successfully, proceed to login");
+        toast.success('Registered successfully, proceed to login');
         setUser({
-          name: "",
-          email: "",
-          address: "",
-          mobileNumber: "",
-          password: "",
-          confirmPassword: "",
+          name: '',
+          email: '',
+          address: '',
+          mobileNumber: '',
+          password: '',
+          confirmPassword: '',
         });
-        navigate("/sign-in");
+        navigate('/sign-in');
       }
       setIsLoading(false);
     } catch (error) {
-      toast.error("Error adding user:", error);
+      toast.error('Error adding user:', error);
       setIsLoading(false);
     }
   };
@@ -58,10 +58,7 @@ const SignUpForm = () => {
       <form onSubmit={handleSubmit} className="w-full mt-4">
         <div className="flex justify-between gap-4">
           <div className="mb-4 w-full">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="username"
-            >
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
               Name
             </label>
             <input
@@ -77,10 +74,7 @@ const SignUpForm = () => {
             />
           </div>
           <div className="mb-4 w-full">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="username"
-            >
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
               Email
             </label>
             <input
@@ -98,11 +92,8 @@ const SignUpForm = () => {
         </div>
 
         <div className="mb-4 ">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="username"
-          >
-            Address
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+            Address (Shipping Address)
           </label>
           <input
             type="text"
@@ -118,10 +109,7 @@ const SignUpForm = () => {
         </div>
 
         <div className="mb-4 ">
-          <label
-            className="block text-gray-700 text-sm font-bold mb-2"
-            htmlFor="username"
-          >
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
             Mobile Number
           </label>
           <input
@@ -139,10 +127,7 @@ const SignUpForm = () => {
 
         <div className="flex justify-between gap-4">
           <div className="mb-1 w-full">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="phone"
-            >
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
               Password
             </label>
             <input
@@ -158,10 +143,7 @@ const SignUpForm = () => {
             />
           </div>
           <div className="mb-1 w-full">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="phone"
-            >
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="phone">
               Confirm Password
             </label>
             <input
@@ -178,20 +160,14 @@ const SignUpForm = () => {
           </div>
         </div>
         <div className="mb-4">
-          {!passwordsMatch && (
-            <p className="text-red-500 text-sm ">Passwords do not match.</p>
-          )}
+          {!passwordsMatch && <p className="text-red-500 text-sm ">Passwords do not match.</p>}
         </div>
         <div className="flex items-center gap-3">
           <button
             type="submit"
             className="bg-[#02152c] hover:bg-[#02152c] text-white font-bold py-2 px-4 w-full rounded focus:outline-none focus:shadow-outline"
           >
-            {isLoading ? (
-              <LoadingSpinner></LoadingSpinner>
-            ) : (
-              <span>Sign up</span>
-            )}
+            {isLoading ? <LoadingSpinner></LoadingSpinner> : <span>Sign up</span>}
           </button>
         </div>
       </form>
@@ -199,10 +175,7 @@ const SignUpForm = () => {
       <div>
         <p className="text-small-regular text-light-2 text-center mt-5 ">
           <span className="text-gray-700">Already have an account?</span>
-          <Link
-            to="/sign-in"
-            className="text-primary-500 text-small-semibold ml-1"
-          >
+          <Link to="/sign-in" className="text-primary-500 text-small-semibold ml-1">
             Sign in
           </Link>
         </p>
