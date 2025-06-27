@@ -11,9 +11,7 @@ export const Footer = () => {
     <footer className="">
       <div className="container py-6 grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
-          <h3 className="text-1xl md:text-2xl font-bold mb-6">
-            Smartech - Everything You Need, Just a Click Away
-          </h3>
+          <h3 className="text-1xl md:text-2xl font-bold mb-6">Smartech - Everything You Need</h3>
           <p className="py">
             Your premier online marketplace offering quality products across all categories. From
             electronics to home goods, fashion to lifestyle essentials - we bring you the best
