@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Plus } from 'lucide-react';
 import ProductCard from './AdminProductCard';
+import { ShopContext } from '../context/ShopContext';
 
 const ProductsTab = ({ products, onOpenModal, imageUrls }) => {
+  const { loading } = useContext(ShopContext);
   return (
     <div className="p-6">
       <div className="flex justify-between items-center mb-6">
@@ -16,16 +18,24 @@ const ProductsTab = ({ products, onOpenModal, imageUrls }) => {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onOpenModal={onOpenModal}
-            imageUrl={imageUrls[product.id]}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <div className="container mt-12 mb-16">
+          <div className="flex justify-center items-center h-64">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              onOpenModal={onOpenModal}
+              imageUrl={imageUrls[product.id]}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
