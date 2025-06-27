@@ -1,7 +1,6 @@
 import { FeaturedProducts } from '../../../components/FeaturedProducts';
 import { HeroSlider } from '../../../components/HeroSlider';
 import { PopularProducts } from '../../../components/PopularProducts';
-import { SubscribeEmail } from '../../../components/SubscribeEmail';
 import { TopProduct } from '../../../components/TopProduct';
 
 export const Home = () => {
