@@ -11,12 +11,14 @@ export const Footer = () => {
     <footer className="">
       <div className="container py-6 grid grid-cols-1 md:grid-cols-2 gap-20">
         <div>
-          <h3 className="text-1xl md:text-2xl font-bold mb-6">Smartech</h3>
+          <h3 className="text-1xl md:text-2xl font-bold mb-6">
+            Smartech - Everything You Need, Just a Click Away
+          </h3>
           <p className="py">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt quasi ab doloribus quis
-            soluta ipsum dolores cumque odit, beatae eligendi! ipsum dolor sit amet consectetur
-            adipisicing elit. Sunt quasi ab doloribus quis soluta ipsum dolores cumque odit, beatae
-            eligendi!
+            Your premier online marketplace offering quality products across all categories. From
+            electronics to home goods, fashion to lifestyle essentials - we bring you the best
+            selection at unbeatable prices. Shop smart, shop Smartech, and discover why thousands of
+            customers trust us for their everyday needs.
           </p>
         </div>
         <div className="flex flex-col lg:flex-row justify-between gap-4">
