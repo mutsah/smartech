@@ -311,7 +311,7 @@ const AddEditProductModal = ({ type, product, onSave, onClose }) => {
                     <p>Upload a file</p>
                     <input
                       type="file"
-                      className="sr-only"
+                      className="sr-only text-center"
                       accept="image/*"
                       onChange={handleFileChange}
                     />
