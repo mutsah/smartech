@@ -18,9 +18,6 @@ export const Home = () => {
 
       {/* top products */}
       <TopProduct></TopProduct>
-
-      {/* subscribe email */}
-      {/* <SubscribeEmail></SubscribeEmail> */}
     </div>
   );
 };
